@@ -10,7 +10,7 @@ const CreateProject = () => {
     function handleSubmit(e) {
         e.preventDefault()
 
-        axios.post('http://localhost:3000/projects/create', {
+        axios.post('https://n9thhd5w-3000.inc1.devtunnels.ms/projects/create', {
             projectName
         }).then(() => {
             navigate('/')

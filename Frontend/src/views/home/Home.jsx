@@ -10,9 +10,13 @@ const Home = () => {
     const [ projects, setProjects ] = useState([])
 
 
+    function navigateToProject(projectId) {
+        navigate(`/project/${projectId}`)
+    }
+
     useEffect(() => {
 
-        axios.get('http://localhost:3000/projects/get-all')
+        axios.get('https://n9thhd5w-3000.inc1.devtunnels.ms/projects/get-all')
             .then(response => {
                 setProjects(response.data.data)
             })
@@ -31,7 +35,11 @@ const Home = () => {
                 {projects.length == 0 ? <div> <p>No projects created</p> </div> : <div className="projects">
                     {projects.map((project) => {
                         return (
-                            <div className="project">
+                            <div
+                                onClick={() => {
+                                    navigateToProject(project._id)
+                                }}
+                                className="project">
                                 {project.name}
                             </div>
                         )
